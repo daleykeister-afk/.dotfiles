@@ -12,7 +12,7 @@
       # For Intel or older AMD: remove amd_pstate or use "intel_pstate=active"
       "usbcore.autosuspend=-1"    # Prevent USB audio interface sleep
     ];
-    kernelModules = ["v4l2loopback"];
+    kernelModules = ["v4l2loopback" "i2c-dev"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 

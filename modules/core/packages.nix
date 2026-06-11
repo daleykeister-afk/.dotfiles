@@ -48,6 +48,7 @@
       # fails to build 2025-11-15
       # ardour
       brightnessctl
+      ddcutil
       claude-code # unfortunately needed for work
       clock-rs
       dust

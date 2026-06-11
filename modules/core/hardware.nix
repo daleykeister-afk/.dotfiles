@@ -19,7 +19,7 @@
   fileSystems."/run/media/Games" =
     { device = "/dev/disk/by-uuid/a6a51055-35f1-4e78-b46b-f927c30955ba";
       fsType = "ext4";
-      options = [ "users" "nofail" ];
+      options = [ "rw" "users" "exec" "noatime" "nofail" ];
     };
 
   fileSystems."/run/media/Files" =
