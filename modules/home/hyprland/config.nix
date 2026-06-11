@@ -234,12 +234,12 @@ in {
 
         # Nvidia settings
         # TODO: also move this to host variables.
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GLX_VENDOR_LIBRARY_NAME,Nvidia"
-        "__GL_VRR_ALLOWED,1"
-        "WLR_NO_HARDWARE_CURSORS,1"
-        "WLR_DRM_NO_ATOMIC,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        # "LIBVA_DRIVER_NAME,nvidia"
+        # "__GLX_VENDOR_LIBRARY_NAME,Nvidia"
+        # "__GL_VRR_ALLOWED,1"
+        # "WLR_NO_HARDWARE_CURSORS,1"
+        # "WLR_DRM_NO_ATOMIC,1"
+        # "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
 
       # more Nvidia-specific settings.
@@ -578,6 +578,13 @@ windowrule {
   workspace = 7
   match:tag = im
 }
+
+windowrule {
+  name = windowrule-53
+  no_max_size = true
+  match:class = ^(guitarix)$
+}
+
 
 monitor=,preferred,auto,auto
 ${extraMonitorSettings}

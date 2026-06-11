@@ -15,10 +15,6 @@ _: {
         })
       '';
     };
-    pam.loginLimits = [
-      { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
-      { domain = "@audio"; item = "rtprio"; type = "-"; value = "95"; }
-    ];
     pam.services.swaylock = {
       text = ''auth include login '';
     };

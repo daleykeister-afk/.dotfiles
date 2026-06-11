@@ -24,11 +24,6 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs;
@@ -111,42 +106,6 @@
       # broken 2026-01-01
       # aseprite
       godot
-    ]
-    ++ lib.optionals config.variables.music [
-      # --- Utilities & Routing ---
-      qpwgraph            # Visual patchbay for PipeWire
-      pavucontrol         # Profile selection (Pro Audio mode)
-      # cpupower            # CPU frequency scaling controls
-      alsa-scarlett-gui   # Hardware mixer for Focusrite Scarlett (may require firmware)
-
-      # --- DAWs ---
-      ardour
-      reaper
-
-      # --- Plugin Hosts ---
-      carla               # Modular plugin host / pedalboard, supports Windows VST via yabridge
-
-      # --- Standalone Guitar Processors ---
-      guitarix
-
-      # --- Plugins (LV2/CLAP) ---
-      neural-amp-modeler-lv2  # NAM: loads .nam files from https://tonehunt.org
-      lsp-plugins             # Includes latency meter, compressors, IR loader
-      calf
-      dragonfly-reverb
-      gxplugins-lv2
-      kapitonov-plugins-pack  # Profile-based amp models (KPP)
-      chow-centaur            # Klon Centaur emulation
-      chow-phaser
-
-      # --- Practice & Learning ---
-      tuxguitar
-      hydrogen
-
-      # --- Windows VST Compatibility ---
-      yabridge
-      yabridgectl
-      wineWow64Packages.stable  # Use wineWow64Packages, as wineWowPackages is deprecated
     ]
     ++ lib.optionals config.variables.silly [
       cmatrix

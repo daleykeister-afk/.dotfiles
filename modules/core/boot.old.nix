@@ -5,13 +5,6 @@
 }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelParams = [ 
-      "threadirqs"
-      "preempt=full"              # Optional: add if experiencing Xruns
-      "amd_pstate=passive"        # Zen 4/5: passive + performance governor = stable freq
-      # For Intel or older AMD: remove amd_pstate or use "intel_pstate=active"
-      "usbcore.autosuspend=-1"    # Prevent USB audio interface sleep
-    ];
     kernelModules = ["v4l2loopback"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
@@ -42,6 +35,4 @@
     };
     plymouth.enable = true;
   };
-
-  powerManagement.cpuFreqGovernor = "performance";
 }

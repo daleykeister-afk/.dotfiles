@@ -14,7 +14,7 @@
             on-timeout = "hyprlock";
           }
           {
-            timeout = 3600;
+            timeout = 43200; # 12 hours
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
           }
