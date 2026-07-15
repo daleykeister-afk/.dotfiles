@@ -5,13 +5,13 @@
 
   # Hyprland Settings
   extraMonitorSettings = "
-    monitor = DP-3, 2560x1440@240, 0x400, auto
-    monitor = DP-2, 2560x1440@144, 2560x0, auto, transform, 1
-    monitor = HDMI-A-1, 2560x1440@144, -1440x0, auto, transform, 3
+    monitor = DP-3, 2560x1440@240, 0x0, auto
+    monitor = DP-2, 2560x1440@144, 2560x-510, auto, transform, 1
+    monitor = HDMI-A-1, 2560x1440@144, -1440x-590, auto, transform, 3
   ";
   extraHardwareSettings = "
   ";
-  defaultWallpaper = "hollow-knight.png";
+  defaultWallpaper = "847928.jpg";
 
   theme = "catppuccin-mocha";
 

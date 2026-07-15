@@ -50,6 +50,7 @@
       brightnessctl
       ddcutil
       claude-code # unfortunately needed for work
+      clementine
       clock-rs
       dust
       # marked unsafe
@@ -65,6 +66,7 @@
       tuigreet
       hyprpicker
       imv
+      inkscape
       killall
       krabby
       libnotify
@@ -77,9 +79,11 @@
       mpv
       mullvad-vpn
       nicotine-plus
+      notes
       obs-studio
       pavucontrol
       pciutils
+      pcsx2
       picard
       playerctl
       prusa-slicer
@@ -93,6 +97,7 @@
       v4l-utils
       vlc
       wget
+      xrandr
       zoxide
     ]
     ++ lib.optionals config.variables.gaming [

@@ -27,6 +27,7 @@ in {
         "lxqt-policykit-agent"
         "pypr &"
         "sleep 1.5 && awww img /home/${username}/Pictures/Wallpapers/${defaultWallpaper}"
+        "xrandr --output DP-3 --primary"
       ];
 
       input = {
@@ -204,8 +205,8 @@ in {
         ",XF86AudioPause, exec, playerctl play-pause"
         ",XF86AudioNext, exec, playerctl next"
         ",XF86AudioPrev, exec, playerctl previous"
-        ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
-        ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+        "SUPER,Page_Up,exec,ddcutil --bus 12 setvcp 10 + 10 ; ddcutil --bus 11 setvcp 10 + 10 ; ddcutil --bus 9 setvcp 10 + 10"
+        "SUPER,Page_Down,exec,ddcutil --bus 12 setvcp 10 - 10 ; ddcutil --bus 11 setvcp 10 - 10 ; ddcutil --bus 9 setvcp 10 - 10"
       ];
 
       binds = {
@@ -245,6 +246,7 @@ in {
       # more Nvidia-specific settings.
       # below settings are what stop electron screen flickering with the 2070S.
       # note: these changes increase power consumption.
+
     };
 
     extraConfig = "
@@ -585,6 +587,12 @@ windowrule {
   match:class = ^(guitarix)$
 }
 
+windowrule {
+  name = windowrule-54
+  monitor = DP-3
+  size = 2560 1440
+  match:class = ^(tf_linux64)$
+}
 
 monitor=,preferred,auto,auto
 ${extraMonitorSettings}

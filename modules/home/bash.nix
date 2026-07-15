@@ -15,6 +15,7 @@
       zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v = "nvim";
+      reap = "DISPLAY=:0 GDK_BACKEND=x11 reaper";
       cat = "bat";
       ls = "eza --icons";
       ll = "eza -lh --icons --grid --group-directories-first";
