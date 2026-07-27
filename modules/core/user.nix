@@ -34,6 +34,8 @@ in {
     description = "${gitUsername}";
     extraGroups = [
       "audio"
+      "i2c"
+      "video"
       "adbusers"
       "dialout"
       "libvirtd"

@@ -242,7 +242,6 @@ in {
       }
     ];
   };
-
   # Generated palette (pure, store-only). Native style.css is symlinked to the
   # working tree in designMode for live SIGUSR2 reload, else the in-store copy.
   xdg.configFile = {

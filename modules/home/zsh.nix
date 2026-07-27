@@ -58,6 +58,7 @@
 
       sdn = "shutdown now";
       rb = "reboot";
+      reap = "DISPLAY=:0 GDK_BACKEND=x11 reaper";
 
       # git
       g = "lazygit";

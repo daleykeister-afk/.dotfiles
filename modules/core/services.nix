@@ -27,6 +27,12 @@
     };
     resolved.enable = true;
 
+    # wireguard mesh between hosts; `sudo tailscale up` once per machine
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+    };
+    resolved.enable = true;
     smartd = {
       enable = false;
       autodetect = true;
@@ -70,9 +76,12 @@
         };
       };
     };
+    udev.extraRules = ''
+      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+    '';
   };
 
-  # lets fuckin see if this fails or lets us use VSTs lmao
+  # VST Dogshit
   environment.sessionVariables = let
     makePluginPath = format:
       (pkgs.lib.makeSearchPath format [
