@@ -26,13 +26,6 @@
       openFirewall = true;
     };
     resolved.enable = true;
-
-    # wireguard mesh between hosts; `sudo tailscale up` once per machine
-    tailscale = {
-      enable = true;
-      openFirewall = true;
-    };
-    resolved.enable = true;
     smartd = {
       enable = false;
       autodetect = true;

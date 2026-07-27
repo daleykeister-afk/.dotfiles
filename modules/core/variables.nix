@@ -149,6 +149,11 @@ in {
           default = false;
           description = "Install silly/novelty packages.";
         };
+        music = mkOption {
+          type = types.bool;
+          default = false;
+          description = "Install music production packages.";
+        };
 
         # program options
         browser = mkOption {
