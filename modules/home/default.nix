@@ -7,6 +7,7 @@ _: {
     ./btop.nix
     ./cava.nix
     ./codium.nix
+    ./design.nix
     ./direnv.nix
     ./discord.nix
     ./emacs.nix
@@ -29,7 +30,7 @@ _: {
     ./scripts
     ./starship.nix
     ./stylix.nix
-    ./swaync.nix
+    ./swaync
     ./tex.nix
     ./tmux.nix
     ./variables.nix

@@ -8,7 +8,7 @@
     kernelParams = [ 
       "threadirqs"
       "preempt=full"              # Optional: add if experiencing Xruns
-      "amd_pstate=passive"        # Zen 4/5: passive + performance governor = stable freq
+      "amd_pstate=active"        # Zen 4/5: passive + performance governor = stable freq
       # For Intel or older AMD: remove amd_pstate or use "intel_pstate=active"
       "usbcore.autosuspend=-1"    # Prevent USB audio interface sleep
     ];
@@ -43,5 +43,6 @@
     plymouth.enable = true;
   };
 
+  services.power-profiles-daemon.enable = false;
   powerManagement.cpuFreqGovernor = "performance";
 }

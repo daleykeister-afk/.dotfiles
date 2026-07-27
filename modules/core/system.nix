@@ -3,7 +3,6 @@
 in {
   nix = {
     settings = {
-      # download-buffer-size = 250000000;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
@@ -27,8 +26,6 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
   environment.variables = {
-    # ZANEYOS_VERSION = "2.3";
-    # ZANEYOS = "true";
     EDITOR = "nvim";
     VISUAL = "nvim";
   };
