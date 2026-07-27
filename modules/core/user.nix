@@ -38,7 +38,6 @@ in {
       "video"
       "adbusers"
       "dialout"
-      "docker"
       "libvirtd"
       "lp"
       "networkmanager"
@@ -47,6 +46,7 @@ in {
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
+    openssh.authorizedKeys.keys = config.variables.sshAuthorizedKeys;
   };
   nix.settings.allowed-users = ["${username}"];
 }

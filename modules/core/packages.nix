@@ -81,6 +81,7 @@
       nicotine-plus
       notes
       obs-studio
+      outfox
       pavucontrol
       pciutils
       pcsx2
@@ -107,7 +108,7 @@
       joycond
       joycond-cemuhook
       lumafly # HK mod manager
-      melonDS #nds emu
+      melonds #nds emu
       osu-lazer-bin
       prismlauncher # minecraft launcher
       # # fails to build 2026-01-01
