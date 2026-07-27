@@ -9,7 +9,7 @@
   # A single monitor entry as consumed by modules/home/hyprland/config.nix
   monitorType = types.attrsOf types.str;
 in {
-# when a key is renamed or removed, add a 
+  # when a key is renamed or removed, add a 
   # `(lib.mkRenamedOptionModule [ "variables" "old" ] [ "variables" "new" ])` or
   # `(lib.mkRemovedOptionModule [ "variables" "gone" ] "<migration hint>")`
   # entry below.
@@ -148,6 +148,11 @@ in {
           type = types.bool;
           default = false;
           description = "Install silly/novelty packages.";
+        };
+        music = mkOption {
+          type = types.bool;
+          default = false;
+          description = "Install music production packages.";
         };
 
         # program options

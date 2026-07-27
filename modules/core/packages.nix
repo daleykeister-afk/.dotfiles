@@ -81,6 +81,7 @@
       nicotine-plus
       notes
       obs-studio
+      opencode # for work
       outfox
       pavucontrol
       pciutils

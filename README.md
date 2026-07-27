@@ -23,6 +23,12 @@ modified version of JaKooLit's catppuccin-mocha themed waybar. attributions are
 in comments in every file where code was copied, so one may search this repo for
 "JaKooLit" to find that code.
 
+## documentation
+
+`DOCUMENTATION.md` documents the structure of this flake for human readers.
+`CONTEXT.md` and the architecture decision records under `docs/adr/` are 
+machine-readable documentation.
+
 ## how to use
 
 this repo should be cloned into `~/.dotfiles`.

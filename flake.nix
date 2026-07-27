@@ -6,6 +6,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs";
     nur.url = "github:nix-community/NUR";
     nvf.url = "github:notashelf/nvf";
@@ -27,7 +28,7 @@
 
   outputs = {
     self,
-    nixpkgs, 
+    nixpkgs,
     ...
   } @ inputs: let
     system = "x86_64-linux";
