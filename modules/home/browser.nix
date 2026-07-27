@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${stdenv.hostPlatform.system}".default
-    firefox-unwrapped
+    # firefox-unwrapped
     ungoogled-chromium
   ];
 }

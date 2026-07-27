@@ -1,4 +1,4 @@
-{profile, ...}: {
+{host, ...}: {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -45,8 +45,8 @@
       y = "yazi";
 
       # nixos
-      fr = "nh os switch ~/.dotfiles --hostname ${profile}";
-      fu = "nh os switch ~/.dotfiles --hostname ${profile} --update";
+      fr = "nh os switch ~/.dotfiles --hostname ${host}";
+      fu = "nh os switch ~/.dotfiles --hostname ${host} --update";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       cat = "bat";
       man = "BAT_THEME='default' batman";
