@@ -56,14 +56,6 @@
       # fails to build 2025-11-15
       # ardour
       amdgpu_top
-      gtop
-      (jetbrains.rider.overrideAttrs (oldAttrs: {
-        postFixup = (oldAttrs.postFixup or "") + ''
-          wrapProgram "$out/bin/rider" \
-            --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib zlib glib ]}"
-        '';
-      }))
-      icu
       brightnessctl
       ddcutil
       claude-code # unfortunately needed for work
@@ -73,9 +65,6 @@
       # marked unsafe
       # element-desktop
       edopro # YGO simulator
-      (epsonscan2.override {
-        withNonFreePlugins = true;
-      })
       eza
       ffmpeg
       file-roller
@@ -83,9 +72,11 @@
       # fails to build 2026-01-01
       # gemini-cli
       gimp
+      gtop
       tuigreet
       hyprpicker
       handbrake
+      icu
       imv
       inkscape
       killall
@@ -145,7 +136,6 @@
       # --- Utilities & Routing ---
       qpwgraph            # Visual patchbay for PipeWire
       pavucontrol         # Profile selection (Pro Audio mode)
-      # cpupower            # CPU frequency scaling controls
       alsa-scarlett-gui   # Hardware mixer for Focusrite Scarlett (may require firmware)
       pipewire
 
@@ -181,7 +171,7 @@
       tuxguitar
       hydrogen
 
-      # --- Windows VST Compatibility ---
+      # --- Windows VST Compatibility --- Does not work due to Meson and Wine have incompatabilities 
       yabridge
       yabridgectl
       wineWow64Packages.stable  # Use wineWow64Packages, as wineWowPackages is deprecated
