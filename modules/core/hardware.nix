@@ -3,7 +3,7 @@
   hardware = {
     sane = {
       enable = true;
-      extraBackends = [ pkgs.sane-airscan ];
+      extraBackends = [ pkgs.sane-airscan pkgs.epsonscan2 ];
       disabledDefaultBackends = [ "escl" ];
     };
     logitech.wireless.enable = false;

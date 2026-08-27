@@ -29,6 +29,14 @@
     xwayland.enable = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; 
+    [
+      stdenv.cc.cc.lib
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs;
@@ -47,6 +55,7 @@
       ])
       # fails to build 2025-11-15
       # ardour
+      amdgpu_top
       brightnessctl
       ddcutil
       claude-code # unfortunately needed for work
@@ -63,8 +72,11 @@
       # fails to build 2026-01-01
       # gemini-cli
       gimp
+      gtop
       tuigreet
       hyprpicker
+      handbrake
+      icu
       imv
       inkscape
       killall
@@ -124,12 +136,20 @@
       # --- Utilities & Routing ---
       qpwgraph            # Visual patchbay for PipeWire
       pavucontrol         # Profile selection (Pro Audio mode)
-      # cpupower            # CPU frequency scaling controls
       alsa-scarlett-gui   # Hardware mixer for Focusrite Scarlett (may require firmware)
+      pipewire
 
       # --- DAWs ---
       ardour
-      reaper
+      (pkgs.symlinkJoin {
+        name = "reaper-pw-jack";
+        paths = [ pkgs.reaper ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/reaper \
+            --prefix LD_LIBRARY_PATH : "${pkgs.pipewire.jack}/lib"
+        '';
+      })
 
       # --- Plugin Hosts ---
       carla               # Modular plugin host / pedalboard, supports Windows VST via yabridge
@@ -151,7 +171,7 @@
       tuxguitar
       hydrogen
 
-      # --- Windows VST Compatibility ---
+      # --- Windows VST Compatibility --- Does not work due to Meson and Wine have incompatabilities 
       yabridge
       yabridgectl
       wineWow64Packages.stable  # Use wineWow64Packages, as wineWowPackages is deprecated
