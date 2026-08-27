@@ -29,6 +29,14 @@
     xwayland.enable = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; 
+    [
+      stdenv.cc.cc.lib
+    ];
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs;
@@ -47,6 +55,15 @@
       ])
       # fails to build 2025-11-15
       # ardour
+      amdgpu_top
+      gtop
+      (jetbrains.rider.overrideAttrs (oldAttrs: {
+        postFixup = (oldAttrs.postFixup or "") + ''
+          wrapProgram "$out/bin/rider" \
+            --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ stdenv.cc.cc.lib zlib glib ]}"
+        '';
+      }))
+      icu
       brightnessctl
       ddcutil
       claude-code # unfortunately needed for work
@@ -56,6 +73,9 @@
       # marked unsafe
       # element-desktop
       edopro # YGO simulator
+      (epsonscan2.override {
+        withNonFreePlugins = true;
+      })
       eza
       ffmpeg
       file-roller
@@ -65,6 +85,7 @@
       gimp
       tuigreet
       hyprpicker
+      handbrake
       imv
       inkscape
       killall
@@ -126,10 +147,19 @@
       pavucontrol         # Profile selection (Pro Audio mode)
       # cpupower            # CPU frequency scaling controls
       alsa-scarlett-gui   # Hardware mixer for Focusrite Scarlett (may require firmware)
+      pipewire
 
       # --- DAWs ---
       ardour
-      reaper
+      (pkgs.symlinkJoin {
+        name = "reaper-pw-jack";
+        paths = [ pkgs.reaper ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/reaper \
+            --prefix LD_LIBRARY_PATH : "${pkgs.pipewire.jack}/lib"
+        '';
+      })
 
       # --- Plugin Hosts ---
       carla               # Modular plugin host / pedalboard, supports Windows VST via yabridge
