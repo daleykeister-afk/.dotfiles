@@ -84,6 +84,7 @@
       inkscape
       killall
       krabby
+      lc0
       libnotify
       libvirt
       lm_sensors
@@ -107,7 +108,9 @@
       qbittorrent-enhanced
       quickemu
       ripgrep
+      scid-vs-pc
       socat
+      stockfish
       unrar
       unzip
       usbutils
