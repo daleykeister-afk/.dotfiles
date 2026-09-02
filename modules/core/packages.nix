@@ -55,6 +55,9 @@
       ])
       # fails to build 2025-11-15
       # ardour
+      android-studio
+      gradle
+      jdk17
       amdgpu_top
       brightnessctl
       ddcutil
@@ -125,7 +128,7 @@
       osu-lazer-bin
       prismlauncher # minecraft launcher
       # # fails to build 2026-01-01
-      # retroarch-free # generic emu
+      retroarch-full # generic emu
     ]
     ++ lib.optionals config.variables.gamedev [
       # broken 2026-01-01
