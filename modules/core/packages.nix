@@ -55,6 +55,9 @@
       ])
       # fails to build 2025-11-15
       # ardour
+      android-studio
+      gradle
+      jdk17
       amdgpu_top
       brightnessctl
       ddcutil
@@ -81,6 +84,7 @@
       inkscape
       killall
       krabby
+      lc0
       libnotify
       libvirt
       lm_sensors
@@ -104,7 +108,9 @@
       qbittorrent-enhanced
       quickemu
       ripgrep
+      scid-vs-pc
       socat
+      stockfish
       unrar
       unzip
       usbutils
@@ -125,7 +131,7 @@
       osu-lazer-bin
       prismlauncher # minecraft launcher
       # # fails to build 2026-01-01
-      # retroarch-free # generic emu
+      retroarch-full # generic emu
     ]
     ++ lib.optionals config.variables.gamedev [
       # broken 2026-01-01
