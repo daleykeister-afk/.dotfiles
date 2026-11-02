@@ -51,7 +51,7 @@ hl.env("MOZ_ENABLE_WAYLAND",                "1")
 -- ── Monitors ─────────────────────────────────────────────────────────────
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 for _, m in ipairs(vars.monitors) do
-  hl.monitor({ output = m.output, mode = m.mode, position = m.position, scale = m.scale, transform = m.transform })
+  hl.monitor({ output = m.output, mode = m.mode, position = m.position, scale = m.scale, transform = m.transform, bitdepth = 10, cm = m.colorPreset})
 end
 
 -- ── Settings ─────────────────────────────────────────────────────────────
@@ -239,9 +239,9 @@ hl.bind("SUPER + mouse_up",        hl.dsp.focus({ workspace = "e-1" }))
 hl.bind("ALT + Tab",               hl.dsp.window.cycle_next())
 hl.bind("ALT + Tab",               hl.dsp.window.bring_to_top())
 -- Media keys
-hl.bind("XF86AudioRaiseVolume",    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"))
-hl.bind("XF86AudioLowerVolume",    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-hl.bind("XF86AudioMute",           hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+hl.bind("XF86AudioRaiseVolume",    hl.dsp.exec_cmd("swayosd-client --output-volume raise"), { repeating = true })
+hl.bind("XF86AudioLowerVolume",    hl.dsp.exec_cmd("swayosd-client --output-volume lower"), { repeating = true })
+hl.bind("XF86AudioMute",           hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"))
 hl.bind("XF86AudioPlay",           hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPause",          hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioNext",           hl.dsp.exec_cmd("playerctl next"))
